@@ -1,0 +1,55 @@
+#PERSONAL SONG
+
+use_bpm 180
+use_synth :organ_tonewheel
+
+
+live_loop :close_eyes do
+  #First four measures
+  play :gs3
+  sleep 1.5
+  play :gs3
+  sleep 1.5
+  play :c4
+  sleep 1.5
+  sleep 3.5
+  play :f3, sustain: 4
+  sleep 4
+  sleep 2
+  play :f4
+  sleep 2
+  
+  # second four measures
+  play :gs3
+  sleep 1.5
+  play :gs3
+  sleep 1.5
+  play :c4
+  sleep 1.5
+  sleep 3.5
+  play :f3, sustain: 4
+  sleep 4
+  sleep 2
+  play :f4
+  sleep 2
+  stop
+end
+
+sleep 16
+
+live_loop  :drumbeat do
+  4.times do
+    sample :drum_cymbal_closed
+    sleep 1
+    sample :drum_cymbal_closed
+    sleep 1
+    sample :drum_cymbal_closed
+    sleep 1
+    sample :drum_cymbal_closed
+    sleep 1
+  end
+  stop
+end
+sleep 16
+sample "C:/Users/kai_yamano/Documents/Audacity/DVRST - Close Eyes .wav"
+
