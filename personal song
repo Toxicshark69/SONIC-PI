@@ -4,6 +4,20 @@ use_bpm 180
 use_synth :organ_tonewheel
 
 
+define  :back_round do
+  4.times do
+    sample :drum_cymbal_closed
+    sleep 1
+    sample :drum_cymbal_closed
+    sleep 1
+    sample :drum_cymbal_closed
+    sleep 1
+    sample :drum_cymbal_closed
+    sleep 1
+  end
+  stop
+end
+
 live_loop :close_eyes do
   #First four measures
   play :gs3
@@ -36,20 +50,13 @@ live_loop :close_eyes do
 end
 
 sleep 16
-
-live_loop  :drumbeat do
-  4.times do
-    sample :drum_cymbal_closed
-    sleep 1
-    sample :drum_cymbal_closed
-    sleep 1
-    sample :drum_cymbal_closed
-    sleep 1
-    sample :drum_cymbal_closed
-    sleep 1
-  end
-  stop
+live_loop :ez do
+  back_round
 end
 sleep 16
-sample "C:/Users/kai_yamano/Documents/Audacity/DVRST - Close Eyes .wav"
+sample "C:/Users/kai_yamano/Documents/Audacity/DVRST - Close Eyes .wav",amp:2
+sleep 2
+sample :bass_hard_c
+sleep 2
+
 
