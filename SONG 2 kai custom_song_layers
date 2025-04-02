@@ -1,0 +1,96 @@
+use_bpm 80  # Adjust as needed
+drum=0.05
+
+define :m3m4 do |note|
+  play :c5
+  sleep 0.5
+  play :e5
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  play (note)
+  sleep 0.5
+  play :g5
+  sleep 0.5
+end
+
+
+
+live_loop :memory do
+  4.times do
+    # Measure 1 and 2
+    2.times do
+      play :b4
+      sleep 0.5
+      play :d5
+      sleep 0.5
+      play :e5
+      sleep 0.5
+      play :b4
+      sleep 0.5
+      play :d5
+      sleep 0.5
+      play :e5
+      sleep 0.5
+    end
+    
+    
+    
+    # Measure 3 - paramaterized function
+    m3m4 :e5
+    
+    # Measure 4 - paramaterized function
+    m3m4 :f5
+    
+    # Measure 5
+    play :d5
+    sleep 0.5
+    play :f5
+    sleep 0.5
+    play :a5
+    sleep 0.5
+    play :d5
+    sleep 0.5
+    play :f5
+    sleep 0.5
+    play :a5
+    sleep 0.5
+    
+    # Measure 6
+    play :d5
+    sleep 0.5
+    play :g5
+    sleep 0.5
+    play :b5
+    sleep 0.5
+    play :d5
+    sleep 0.5
+    play :g5
+    sleep 0.5
+    play :b5
+    sleep 0.5
+  end
+  stop
+end
+
+sleep 18
+
+live_loop :drum do
+  #5.25 seconds of fade-in
+  21.times do
+    sample :drum_cymbal_closed,amp: drum
+    sleep 0.25
+    drum=drum+0.01
+  end
+  51.times do
+    sample :drum_cymbal_closed,amp: 0.25
+    sleep 0.25
+  end
+  stop
+end
+
+sleep 18
+
+sample  "C:/Users/kai_yamano/Desktop/Memory .wav"
